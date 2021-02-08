@@ -1,0 +1,53 @@
+.gradient {
+    height: 0.3em;
+    background: linear-gradient(to right, #202357 20%, red 20% 40%, #3bc4fa 40% 60%, #202357 60% 80%, red 60%);
+}
+
+.book-description {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    p {
+        padding-top: 1.4em;
+    }
+}
+
+img {
+    border: 5px solid #d8d8d8;
+    max-width: 17em;
+    margin: 40px;
+    padding: 15px;
+    background: rgb(230, 210, 210);
+    border-radius: 6px;
+}
+
+footer {
+    background: #202357;
+    color: #ffffff;
+    height: 10em;
+    margin: 0 auto;
+
+    .contact-links,
+    .contact-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact-text {
+        flex-direction: column;
+    }
+}
+
+.contact-links {
+    
+    li {
+    display: inline-block;
+    margin-left: 1.4em;
+    }
+    li a {
+        text-decoration: none;
+        color: black;
+    }
+}
