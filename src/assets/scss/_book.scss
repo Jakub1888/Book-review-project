@@ -7,10 +7,28 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 85%;
+    margin: 0 auto;
+    background: white;
+    border-radius: $border-radius-box;
+    margin-bottom: 2em;
+    @include box-shadow();
 
     p {
         padding-top: 1.4em;
     }
+}
+
+.review-form {
+    width: 25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    background: white;
+    margin: 0 auto;
+    border-radius: $border-radius-box;
+    @include box-shadow();
 }
 
 img {
@@ -19,7 +37,8 @@ img {
     margin: 40px;
     padding: 15px;
     background: rgb(230, 210, 210);
-    border-radius: 6px;
+    border-radius: $border-radius-box;
+    @include box-shadow();
 }
 
 footer {
@@ -37,6 +56,11 @@ footer {
 
     .contact-text {
         flex-direction: column;
+    }
+
+    i {
+        color: red;
+        padding-right: .3em;
     }
 }
 

@@ -1,27 +1,26 @@
-@import './scss/welcome';
-@import './scss/modal';
-@import './scss/book';
-
-
-$color1: #caf5dc;
-$color2: #d8dbfc;
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import "./scss/variables";
+@import "./scss/welcome";
+@import "./scss/modal";
+@import "./scss/book";
 
 html {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to left, $color1, $color2);
+  @include gradient-bg();
 }
 
 #app,
 .modals {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
-#app h1 {
-  text-align: center;
+#app {
+  h2 {
+    text-align: center;
+  }
 }
 
 ul {
@@ -33,20 +32,35 @@ ul {
 header {
   height: 6em;
   width: 100%;
-  background: rgb(241, 241, 217);
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: flex-start;
+  @include gradient-bg();
 
-  ul {
+  i {
+    font-size: 1.3em;
+  }
+  .fa-book:before {
+    padding-right: 0.2em;
+    color: green;
+  }
+
+  .links,
+  .sign-up {
     li {
       display: inline-block;
       padding-top: 2em;
       font-size: 1.1em;
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
+        color: $color-text;
+      }
     }
 
     li:nth-of-type(1) {
-      margin-right: 1em;
+      margin-right: 1.5em;
       margin-left: 2em;
     }
 
@@ -55,16 +69,22 @@ header {
     }
   }
 
-  a {
-    text-decoration: none;
-    color: black;
+  .links a {
+    @include transition(0.3s ease-in-out);
+  }
+
+  .links a:hover,
+  .links a:focus {
+    color: lighten($color-text, 20%);
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid black;
   }
 
   .sign-up a {
     border: 1px solid black;
     border-radius: 5px;
     padding: 0.5em;
-    transition: .3s ease-in-out ;
+    @include transition(0.3s ease-in-out);
   }
 
   .sign-up a:hover,
@@ -81,5 +101,3 @@ header {
     margin: auto;
   }
 }
-
-

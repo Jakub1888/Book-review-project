@@ -1,0 +1,24 @@
+$border-radius-box: 15px;
+$color1: #caf5dc;
+$color2: #d8dbfc;
+$header-color: rgb(124, 231, 217);
+$color-text: #4d3b96;
+
+@mixin gradient-bg {
+    background: -webkit-gradient(linear, right top, left top, from($color1), to($color2));
+    background: -o-linear-gradient(right, $color1, $color2);
+    background: linear-gradient(to left, $color1, $color2);
+}
+
+@mixin box-shadow {
+    -webkit-box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.64); 
+    box-shadow: 1px 1px 10px 5px rgba(0,0,0,0.64);
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+  }

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 .welcome {
   color: white;
   text-align: center;
@@ -41,6 +42,18 @@
   border-bottom: 1px solid #dcdcdc;
   padding: 6px 5px;
   margin: 1em 0;
+}
+
+.modal label {
+  color: #aaa;
+}
+
+.modal input[type="checkbox"] {
+  display: inline-block;
+  width: 16px;
+  margin: 0 10px 0 0;
+  position: relative;
+  top: 2px;
 }
 
 .modal .modal-close-x {
@@ -112,10 +125,28 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 85%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  margin-bottom: 2em;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
 }
 
 .book-description p {
   padding-top: 1.4em;
+}
+
+.review-form {
+  width: 25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em;
+  background: white;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
 }
 
 img {
@@ -124,7 +155,8 @@ img {
   margin: 40px;
   padding: 15px;
   background: #e6d2d2;
-  border-radius: 6px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
 }
 
 footer {
@@ -145,6 +177,11 @@ footer .contact-text {
   flex-direction: column;
 }
 
+footer i {
+  color: red;
+  padding-right: .3em;
+}
+
 .contact-links li {
   display: inline-block;
   margin-left: 1.4em;
@@ -163,13 +200,12 @@ html {
 
 #app,
 .modals {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
 }
 
-#app h1 {
+#app h2 {
   text-align: center;
 }
 
@@ -182,37 +218,62 @@ ul {
 header {
   height: 6em;
   width: 100%;
-  background: #f1f1d9;
   border-bottom: 1px solid #000;
   display: flex;
   justify-content: flex-start;
+  background: linear-gradient(to left, #caf5dc, #d8dbfc);
 }
 
-header ul li {
+header i {
+  font-size: 1.3em;
+}
+
+header .fa-book:before {
+  padding-right: 0.2em;
+  color: green;
+}
+
+header .links li,
+header .sign-up li {
   display: inline-block;
   padding-top: 2em;
   font-size: 1.1em;
+  font-weight: 600;
 }
 
-header ul li:nth-of-type(1) {
-  margin-right: 1em;
+header .links li a,
+header .sign-up li a {
+  text-decoration: none;
+  color: #4d3b96;
+}
+
+header .links li:nth-of-type(1),
+header .sign-up li:nth-of-type(1) {
+  margin-right: 1.5em;
   margin-left: 2em;
 }
 
-header ul li:nth-of-type(2) {
+header .links li:nth-of-type(2),
+header .sign-up li:nth-of-type(2) {
   margin-right: 2em;
 }
 
-header a {
-  text-decoration: none;
-  color: black;
+header .links a {
+  transition: 0.3s ease-in-out;
+}
+
+header .links a:hover,
+header .links a:focus {
+  color: #8170c7;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid black;
 }
 
 header .sign-up a {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5em;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 header .sign-up a:hover,
