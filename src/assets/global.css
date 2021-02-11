@@ -1,24 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap");
 .welcome {
-  color: white;
-  text-align: center;
+  color: #fff;
+  text-align: left;
+  width: 100%;
+  height: 800px;
+  text-shadow: 3px 3px 2px #b3b1b1;
+  background: url("./img/wave.svg") fixed no-repeat center;
+  background-size: cover;
 }
 
 .welcome .inner-section {
-  width: 80%;
+  height: auto;
   margin: 0 auto;
-  padding-top: 5em;
-  text-shadow: 1px;
+  padding-top: 3em;
+  padding-left: 13.5em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .welcome .inner-section h1 {
-  margin-top: 2em;
   margin: 0;
-  font-size: 4em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  font-weight: 600;
+  font-size: 6em;
+  letter-spacing: .01em;
 }
 
 .welcome .inner-section p {
-  font-size: 2em;
+  font-weight: 400;
+  font-size: 2.1em;
+  width: 25em;
+  letter-spacing: .01em;
 }
 
 .modal {
@@ -116,70 +130,175 @@
   flex-direction: column;
 }
 
-.gradient {
-  height: 0.3em;
-  background: linear-gradient(to right, #202357 20%, red 20% 40%, #3bc4fa 40% 60%, #202357 60% 80%, red 60%);
+#book-review {
+  padding-top: 5em;
+  padding-bottom: 5em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 3%;
+  background: url("./img/blob.svg") fixed no-repeat 100% 100px;
+  background-size: 500px;
 }
 
 .book-description {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 85%;
-  margin: 0 auto;
   background: white;
-  border-radius: 15px;
-  margin-bottom: 2em;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
+  margin-left: 12em;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  height: 32em;
+}
+
+.book-description img {
+  max-width: 17em;
+  margin: 40px;
+  padding: 12px;
+  background: #3b3b3b;
+  border-radius: 8px;
   box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
 }
 
-.book-description p {
-  padding-top: 1.4em;
+.book-description .book-description-text {
+  padding: 2em 4em 2em 0;
+}
+
+.book-description .book-description-text p {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.book-description .book-description-text strong {
+  font-weight: 600;
+}
+
+.review-list {
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
+  margin-right: 12em;
+  padding: 1em 2em 1em 2em;
+  display: grid;
+  grid-template-rows: 0.1fr 1fr;
+  display: table;
+  background: white;
+}
+
+.review-list h3 {
+  margin: 0.4em 0 0.7em 0;
+  font-size: 1.6em;
+}
+
+.review-list i {
+  color: gold;
+}
+
+.review-list span i {
+  color: white;
+  padding-bottom: 1.3em;
+}
+
+.review-list li {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.6em;
+  display: table-row;
+}
+
+.review-list li strong {
+  font-weight: 600;
 }
 
 .review-form {
-  width: 25em;
+  background: url("./img/bg-2.png") fixed no-repeat 0% 400px;
+  background-size: 30em;
+  height: 35em;
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 3%;
+  padding-bottom: 4em;
+}
+
+.review-form .review-form-bg {
+  margin-left: 12em;
+  text-shadow: 3px 3px 2px #b3b1b1;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.review-form .review-form-bg h1 {
+  color: white;
+  font-size: 3.5em;
+  margin-top: 0;
+}
+
+.review-form .review-form-bg p {
+  color: white;
+  font-size: 2em;
+}
+
+.review-form .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2em;
+  padding-bottom: 1em;
   background: white;
+  margin-right: 12em;
+  max-height: 25em;
+  max-width: 436px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
+}
+
+.review-form .form label {
+  font-weight: 600;
+  font-size: 1.2em;
+  padding-top: .7em;
+}
+
+.review-form .form input, .review-form .form select, .review-form .form textarea {
+  padding: .5em;
+  border-radius: 8px;
+}
+
+.review-form .form textarea {
+  max-width: 416px;
+}
+
+.review-form .form input[type=submit] {
   margin: 0 auto;
-  border-radius: 15px;
-  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
+  margin-top: 1em;
+  width: 6em;
 }
 
-img {
-  border: 5px solid #d8d8d8;
-  max-width: 17em;
-  margin: 40px;
-  padding: 15px;
-  background: #e6d2d2;
-  border-radius: 15px;
-  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.64);
-}
-
-footer {
-  background: #202357;
+aside {
+  background: #4a4a50;
   color: #ffffff;
   height: 10em;
   margin: 0 auto;
+  padding: 1em;
 }
 
-footer .contact-links,
-footer .contact-text {
+aside .contact-links,
+aside .contact-text {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-footer .contact-text {
+aside .contact-text {
   flex-direction: column;
 }
 
-footer i {
-  color: red;
-  padding-right: .3em;
+aside i {
+  color: white;
+  padding-right: 0.3em;
+}
+
+aside h2 {
+  margin: 0;
+  font-weight: normal;
 }
 
 .contact-links li {
@@ -192,15 +311,70 @@ footer i {
   color: black;
 }
 
+.dropdown {
+  display: none;
+  padding-right: 5em;
+  padding-top: 2em;
+  width: 2em;
+  margin-left: auto;
+}
+
+.dropdown .fas {
+  font-size: 2em;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown li {
+  cursor: pointer;
+  background: red;
+  width: 70px;
+  text-align: center;
+}
+
+.dropdown-enter,
+.dropdown-leave-to {
+  transform: scaleY(0.7);
+  opacity: 0;
+}
+
+.dropdown-enter-to,
+.dropdown-leave {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.3s ease-out;
+  transform-origin: top top;
+}
+
+@media (max-width: 1050px) {
+  .dropdown {
+    display: inline-block;
+  }
+  .links,
+  .sign-up {
+    display: none;
+  }
+}
+
 html {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to left, #caf5dc, #d8dbfc);
+}
+
+body {
+  background: linear-gradient(to left, #c3f5d8, #cfd3f8);
 }
 
 #app,
 .modals {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Work Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -218,19 +392,21 @@ ul {
 header {
   height: 6em;
   width: 100%;
-  border-bottom: 1px solid #000;
   display: flex;
   justify-content: flex-start;
-  background: linear-gradient(to left, #caf5dc, #d8dbfc);
+  background: white;
 }
 
-header i {
-  font-size: 1.3em;
+header img {
+  margin: 0 auto;
 }
 
-header .fa-book:before {
-  padding-right: 0.2em;
-  color: green;
+header .links {
+  padding-left: 11.5em;
+}
+
+header .sign-up {
+  padding-right: 11.5em;
 }
 
 header .links li,
@@ -279,8 +455,8 @@ header .sign-up a {
 header .sign-up a:hover,
 header .sign-up a:focus {
   cursor: pointer;
-  background: #caf5dc;
-  border: 1px solid #d8dbfc;
+  background: #c3f5d8;
+  border: 1px solid #cfd3f8;
 }
 
 header .fas {
@@ -288,5 +464,11 @@ header .fas {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+@media (max-width: 1050px) {
+  header img {
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=global.css.map */

@@ -1,13 +1,14 @@
 <template>
   <form @submit.prevent="onSubmit">
     <label>Name:</label>
-    <input v-model="name" /><br />
+    <input v-model="name" />
 
     <label>Review:</label>
     <textarea id="review" v-model="review"></textarea>
 
     <label for="rating">Rating:</label>
     <select v-model.number="rating">
+      <option value="" disabled selected>Your Rating</option>
       <option>5</option>
       <option>4</option>
       <option>3</option>
@@ -17,6 +18,7 @@
 
     <label>Would you recommend this book?:</label>
     <select v-model="recommend">
+        <option value="" disabled selected>Your Recommendation</option>
         <option>Yes</option>
         <option>No</option>
     </select>
@@ -31,13 +33,13 @@ export default {
     return {
       name: "",
       review: "",
-      recommend: null,
-      rating: 5,
+      recommend: "",
+      rating: "",
     };
   },
   methods: {
     onSubmit() {
-        if(this.name === '' || this.review === '' || this.rating === null) {
+        if(this.name === '' || this.review === '' || this.rating === '' || this.recommend === '') {
             alert('Reviews is incomplete. Please fill out every field.')
             return
         }
@@ -51,7 +53,7 @@ export default {
 
       this.name = ''
       this.review = ''
-      this.rating = 5
+      this.rating = ''
       this.recommend = ''
     },
   },

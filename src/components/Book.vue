@@ -12,26 +12,32 @@
   </section>
 
   <!--Book review section-->
-  <h2>{{ title }}</h2>
-  <section class="book-description">
-    <img :src="book.image" alt="..." />
-    <p>
-      <strong>Author: </strong> {{ book.author }} <br />
-      <strong>Title: </strong> {{ book.bookTitle }} <br />
-      <strong>Published: </strong> {{ book.year }} <br />
-      <strong>About: </strong> {{ book.description }}
-    </p>
+  <section id="book-review">
+    <div class="book-description">
+      <img :src="book.image" :alt="book.alt" />
+      <div class="book-description-text">
+        <p><strong>Author: </strong> {{ book.author }}</p>
+        <p><strong>Title: </strong> {{ book.bookTitle }}</p>
+        <p><strong>Published: </strong> {{ book.year }}</p>
+        <p><strong>About: </strong> {{ book.description }}</p>
+      </div>
+    </div>
 
     <!--Review List-->
-    <review-list v-if="reviews.length" :reviews="reviews" class="review-list"></review-list>
+    <review-list :reviews="reviews" class="review-list"> </review-list>
   </section>
 
   <!--Review Form-->
-    <review-form @review-submitted="addReview" class="review-form"></review-form>
-    
+  <section class="review-form">
+    <div class="review-form-bg">
+      <h1>Random text...</h1>
+      <p>Much, much longer randomg text talking about nothing.</p>
+    </div>
+    <review-form @review-submitted="addReview" class="form"></review-form>
+  </section>
+
   <!--Contact-->
-  <footer>
-    <div class="gradient"></div>
+  <aside>
     <div class="contact-text">
       <h2>Do you have any questions?</h2>
       <p>Feel free to contact us.</p>
@@ -51,7 +57,7 @@
         <i class="fas fa-mobile"></i><a href="tel:0910 123 456">0911 123 456</a>
       </li>
     </ul>
-  </footer>
+  </aside>
 </template>
 
 <script>
@@ -60,7 +66,7 @@ import ReviewList from "./ReviewList.vue";
 export default {
   components: {
     ReviewForm,
-    ReviewList
+    ReviewList,
   },
   data() {
     return {
@@ -69,29 +75,22 @@ export default {
         bookTitle: "The Heart Is a Lonely Hunter",
         author: "Carson McCullers",
         year: "1940",
-        description: "hi",
+        alt: "...",
+        description:
+          "The Heart Is a Lonely Hunter is the debut novel by the American author Carson McCullers; she was 23 at the time of publication. It is about a deaf man named John Singer and the people he encounters in a 1930s mill town in the US state of Georgia.",
         image:
           "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/1411/9780141185224.jpg",
       },
-      reviews: []
-    }
+      reviews: [],
+    };
   },
   methods: {
     addReview(review) {
-      this.reviews.push(review)
-    }
+      this.reviews.push(review);
+    },
   },
-}
+};
 </script>
 
-<style>
-.welcome {
-  height: 25em;
-  background: url("../assets/img/bg.jpg") no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 560px;
-  background-position: 0 0;
-}
-</style>>
+
 

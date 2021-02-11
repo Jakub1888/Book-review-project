@@ -9,7 +9,7 @@
     >
       <a class="modal-close-x" @click.prevent="closeModal">x</a>
       <slot>default content</slot>
-      
+
       <!--Modal 2 slot-->
       <div class="actions">
         <slot name="logIn"></slot>

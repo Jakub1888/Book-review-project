@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>Reviews:</h3>
+    <h3>Place for your review:</h3>
     <ul>
       <li v-for="(review, index) in reviews" :key="index">
-        {{ review.name }} gave this {{ review.rating }} stars <br />
+        <strong>{{ review.name }}</strong> gave this {{ review.rating }} out of 5 <i class="fas fa-star"></i>
         "{{ review.review }}" <br>
-        Recommended: {{ review.recommend }}
+        <strong>Recommended:</strong> {{ review.recommend }} <span><i class="fas fa-star"></i></span>
       </li>
     </ul>
   </div>
@@ -21,6 +21,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
