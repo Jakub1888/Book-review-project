@@ -1,39 +1,77 @@
 .welcome {
-  color:#fff;
+  color: #fff;
   text-align: left;
   width: 100%;
   height: 800px;
   text-shadow: 3px 3px 2px #b3b1b1;
-  background: url('./img/wave.svg') fixed no-repeat center;
+  background: url("./img/wave.svg") no-repeat center;
   background-size: cover;
- 
+
   .inner-section {
     height: auto;
     margin: 0 auto;
     padding-top: 3em;
-    padding-left: 13.5em;
+    width: 50%;
+    text-align: center;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 
-    
-
     h1 {
-      margin: 0;
-      padding-top: .1em;
-      padding-bottom: .1em;
-      font-weight: 600;
+      margin: 0 auto;
+      padding-top: .8em;
+      padding-bottom: 0.1em;
+      font-weight: 900;
       font-size: 6em;
-      letter-spacing: .01em;
+      letter-spacing: 0.01em;
     }
 
     p {
-      font-weight: 400;
-      font-size: 2.1em;
-      width: 25em;
-      letter-spacing: .01em;
+      font-size: 2em;
+      letter-spacing: 0.01em;
     }
   }
 }
 
+@media (max-width: 1400px) {
+  .welcome .inner-section {
+    padding-left: 5em;
 
+    h1 {
+      font-size: 5em;
+    }
+
+    p {
+      font-size: 2em;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .welcome .inner-section {
+    padding-left: 3em;
+
+    h1 {
+      font-size: 4em;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .welcome .inner-section {
+    padding-left: 1.5em;
+
+    h1 {
+      font-size: 3.3em;
+    }
+
+    p {
+      font-size: 1.4em;
+      width: 90%;
+    }
+  }
+}
