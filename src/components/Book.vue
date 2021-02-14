@@ -2,11 +2,13 @@
   <!--Welcome section-->
   <section class="welcome">
     <div class="inner-section">
-      <h1>Welcome...</h1>
+      <h1>Welcome</h1>
       <p>
-        Croissant sweet gummies sweet candy chocolate cake marzipan bear claw.
-        Chocolate cake ice cream jelly beans bear claw pie icing marzipan
-        gingerbread sweet.
+        Have you ever wished to share your ideas and opinions about
+        favourite books with other people?
+      </p>
+      <p>
+        ...then this is the place for you.
       </p>
     </div>
   </section>
@@ -14,46 +16,48 @@
   <!--Book review section-->
   <section id="book-review">
     <div class="book-description">
-      <img :src="image" :alt="books.alt" />
+      <img :src="image" :alt="alt" />
+      <!--Book description-->
       <div class="book-description-text">
         <p><strong>Author: </strong> {{ author }}</p>
         <p><strong>Title: </strong> {{ title }}</p>
         <p><strong>Published: </strong> {{ year }}</p>
         <p><strong>About: </strong> {{ description }}</p>
       </div>
+      <!--Book selection-->
+      <ul class="book-list">
+        <li
+          class="book-select"
+          v-for="book in books"
+          :key="book.id"
+          @click="
+            updateBook(
+              book.image,
+              book.author,
+              book.title,
+              book.year,
+              book.description
+            )
+          "
+        >
+          {{ book.title }}
+        </li>
+      </ul>
     </div>
 
     <!--Review List-->
     <review-list :reviews="reviews" class="review-list"> </review-list>
-    <ul class="book-list">
-      <li
-        class="book-select"
-        v-for="book in books"
-        :key="book.id"
-        @click="
-          updateImage(
-            book.image,
-            book.author,
-            book.title,
-            book.year,
-            book.description
-          )
-        "
-      >
-        {{ book.title }}
-      </li>
-    </ul>
   </section>
 
   <!--Review Form-->
   <section class="review-form">
     <div class="review-form-bg">
-      <h1>Random text...</h1>
-      <p>Much, much longer randomg text talking about nothing.</p>
+      <h1>Inspire others with your review</h1>
+      <p>...or get inspired by some of the quotes below.</p>
     </div>
     <review-form @review-submitted="addReview" class="form"></review-form>
   </section>
-
+  <quote-generator></quote-generator>
   <!--Contact-->
   <aside>
     <div class="contact-text">
@@ -69,23 +73,31 @@
       </li>
       <li>
         <i class="fas fa-envelope-open"></i
-        ><a href="mailto:info@ook-project.sk">info@book-project.sk</a>
+        ><a href="mailto:info@madeup-mail.sk">info@madeup-mail.sk</a>
       </li>
       <li>
         <i class="fas fa-mobile"></i><a href="tel:0910 123 456">0911 123 456</a>
       </li>
     </ul>
   </aside>
+  <footer>
+    created by
+    <a href="https://github.com/Jakub1888" target="_blank" rel="noopener"
+      >Jakub Krasňan</a
+    >
+  </footer>
 </template>
 
 <script>
 import ReviewForm from "./ReviewForm.vue";
 import ReviewList from "./ReviewList.vue";
+import QuoteGenerator from "./QuoteGenerator.vue";
 
 export default {
   components: {
     ReviewForm,
     ReviewList,
+    QuoteGenerator,
   },
   data() {
     return {
@@ -94,7 +106,7 @@ export default {
       author: "Carson McCullers",
       title: "The Heart Is a Lonely Hunter",
       year: "1940",
-      alt: "...",
+      alt: "title page of the novel",
       description:
         "The Heart Is a Lonely Hunter is the debut novel by the American author Carson McCullers; she was 23 at the time of publication. It is about a deaf man named John Singer and the people he encounters in a 1930s mill town in the US state of Georgia.",
       books: [
@@ -103,7 +115,7 @@ export default {
           title: "The Heart Is a Lonely Hunter",
           author: "Carson McCullers",
           year: "1940",
-          alt: "...",
+          alt: "title page of the novel",
           description:
             "The Heart Is a Lonely Hunter is the debut novel by the American author Carson McCullers; she was 23 at the time of publication. It is about a deaf man named John Singer and the people he encounters in a 1930s mill town in the US state of Georgia.",
           image:
@@ -114,7 +126,7 @@ export default {
           title: "Wise Blood",
           author: "Flannery O'Connor",
           year: "1952",
-          alt: "...",
+          alt: "title page of the novel",
           description:
             "Wise Blood, Flannery O’Connor’s astonishing and haunting first novel, is a classic of twentieth-century literature. It is a story of Hazel Motes, a twenty-two-year-old caught in an unending struggle against his innate, desperate faith. ",
           image:
@@ -139,18 +151,20 @@ export default {
     addReview(review) {
       this.reviews.push(review);
     },
-    updateImage(
+    updateBook(
       variantImage,
       variantAuthor,
       variantTitle,
       variantYear,
-      varianDescription
+      variantDescription,
+      variantAlt
     ) {
       this.image = variantImage;
       this.author = variantAuthor;
       this.title = variantTitle;
       this.year = variantYear;
-      this.description = varianDescription;
+      this.description = variantDescription;
+      this.alt = variantAlt;
     },
   },
 };

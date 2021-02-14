@@ -1,16 +1,17 @@
 #book-review {
-  padding-top: 5em;
   padding-bottom: 5em;
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1.2fr;
   gap: 3%;
-  background: url("./img/blob.svg") no-repeat 100% 100px;
+  background: url("./img/blob.svg") no-repeat 100% 60%;
   background-size: 500px;
 }
 
 .book-description {
-  background: white;
+  background: url("./img/wave.svg") no-repeat center;
+  background-color: white;
+  background-size: cover;
   border-radius: $border-radius-box;
   @include box-shadow();
   margin-left: 12em;
@@ -21,6 +22,7 @@
   img {
     max-width: 15em;
     min-width: 15em;
+    height: 23em;
     margin: 40px;
     padding: 12px;
     background: rgb(59, 59, 59);
@@ -29,7 +31,10 @@
   }
 
   .book-description-text {
-    padding: 2em 4em 2em 0;
+    padding: 2em 4em 1em 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 
     p {
       font-size: 1.2em;
@@ -51,7 +56,7 @@
   background: white;
 
   h3 {
-    margin: 0.4em 0 0.7em 0;
+    margin: 0.4em 0 0.4em 0;
     font-size: 1.6em;
   }
 
@@ -67,7 +72,8 @@
   li {
     font-size: 1.2em;
     font-weight: 400;
-    line-height: 1.6em;
+    line-height: 1.3em;
+
     display: table-row;
 
     strong {
@@ -77,36 +83,49 @@
 }
 
 .book-list {
-  margin-left: 12em;
-  background: #0099ff;
-  border-radius: $border-radius-box;
-  height: 2em;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 0.6em;
+  padding-right: 7%;
+  grid-column: 1/3;
 
-.book-select {
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: 600;
-  text-align: center;
-  @include transition(0.3s ease-in-out);
-}
+  .book-select {
+    cursor: pointer;
+    position: relative;
+    height: 1.1em;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    @include transition(0.3s ease-in-out);
+  }
 
-.book-select:nth-last-of-type(2) {
-  margin: 0 3em 0 3em;
-}
+  .book-select:nth-of-type(2) {
+    margin: 0 1.5em 0 1.5em;
+  }
 
-.book-select:hover,
-.book-select:focus {
-  @include scale();
-  color: $color-text;
+  .book-select:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $color-text;
+    visibility: hidden;
+    @include transition(0.3s ease-in-out);
+  }
+
+  .book-select:hover:before,
+  .book-select:focus:before {
+    visibility: visible;
+    width: 100%;
+  }
 }
 
 .review-form {
-  background: url("./img/bg-2.png") no-repeat 0% 100px;
-  background-size: 30em;
+  background: url("./img/bg-2.png") no-repeat 0% 30%;
+  background-size: 35em;
   height: 35em;
   display: grid;
   grid-template-columns: 2fr 1.2fr;
@@ -114,14 +133,13 @@
   padding-bottom: 4em;
 
   .review-form-bg {
-    margin-left: 12em;
-    text-shadow: 3px 3px 2px #b3b1b1;
-    padding-left: 5em;
-    padding-right: 5em;
+    margin-left: 6.7em;
+    padding: 1em 5em;
+    @include text-shadow();
 
     h1 {
       color: white;
-      font-size: 3.5em;
+      font-size: 3em;
       font-weight: 600;
       margin-top: 0;
     }
@@ -138,52 +156,88 @@
     justify-content: flex-start;
     padding: 2em;
     padding-bottom: 1em;
-    background: white;
+    background: $color-form;
     margin-right: 12em;
     max-height: 25em;
     max-width: 436px;
     border-radius: $border-radius-box;
     @include box-shadow();
+    @include placeholder();
 
-    label {
-      font-weight: 600;
-      font-size: 1.2em;
-      padding-top: 0.7em;
+    .form-input:focus,
+    button:focus,
+    input[type="submit"] {
+      outline: none;
+      border: 1px solid darken($color1, 15%);
+      @include transition(0.2s ease-in-out);
     }
-    input:focus,
-    select:focus,
-    textarea:focus,
-    button:focus {
-        outline: none;
+
+    h2 {
+      color: white;
+      margin: 0;
+      font-weight: 500;
+      font-size: 1.8em;
+      padding-bottom: 0.4em;
     }
-    input,
-    select,
+
     textarea {
+      min-height: 7em;
+    }
+
+    .form-input {
+      font-weight: 500;
+      margin-top: 0.7em;
       padding: 0.5em;
       border-radius: $border-radius-box;
       border: none;
-      background: #bec1c4;
+      background: $color-form;
+      border: 1px solid white;
+      color: white;
     }
 
-    textarea {
-      max-width: 416px;
+    select {
+      cursor: pointer;
+      @include transition(0.2s ease-in-out);
     }
 
     input[type="submit"] {
       margin: 0 auto;
-      margin-top: 1.6em;
+      margin-top: auto;
+      margin-bottom: 0.1em;
       border: none;
-      background: #0099ff;
-      width: 6em;
+      background: white;
+      color: $color-text;
       cursor: pointer;
       border-radius: 25px;
-      font-size: 1.1em;
-      border: 3px solid darken(#0099ff, 25%);
-      @include transition(0.3s ease-in-out)
+      padding: 0.5em 1.3em;
+      font-weight: 500;
+      font-size: 1.2em;
+      border: 3px solid #b6b6b6;
+      @include transition(0.3s ease-in-out);
     }
 
-    input[type="submit"]:hover {
-      @include scale();
+    input[type="submit"]:hover,
+    input[type="submit"]:focus {
+      background: $color1;
+      border: 3px solid $color1;
+      @include box-shadow-inset;
+      @include transition(0.3s ease-in-out);
+    }
+
+    .select {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      margin: 0;
+
+      select {
+        margin-right: auto;
+        width: 49%;
+      }
+
+      select:last-of-type {
+        margin: 0;
+      }
     }
   }
 }
@@ -229,25 +283,44 @@ aside {
     display: inline-block;
     margin-left: 2em;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: 500;
     padding-bottom: 0.2em;
-    
   }
   li a {
     text-decoration: none;
     color: $color-text;
-    padding-bottom: .2em;
+    padding-bottom: 0.2em;
     border-bottom: 2px solid $color-text;
   }
 
-  li a:hover, li a:focus {
+  li a:hover,
+  li a:focus {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23453886' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
     background-position: bottom;
     background-repeat: repeat-x;
     background-size: 1.1em;
     border-bottom: none;
     text-decoration: none;
-    
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  background: rgb(241, 239, 239);
+  padding: 0.3em;
+  font-size: 0.7em;
+
+  a {
+    padding-left: 0.3em;
+    color: black;
+    text-decoration: none;
+    @include transition(0.3s ease-in-out);
+  }
+
+  a:hover,
+  a:focus {
+    color: rgb(238, 91, 91);
   }
 }
 
@@ -256,7 +329,6 @@ aside {
   #book-review {
     .book-description {
       margin-left: 3em;
-      height: 26em;
 
       .book-description-text {
         padding: 1em 2em 2em 0;
@@ -264,6 +336,7 @@ aside {
 
       .book-description-text p {
         font-size: 1.1em;
+        margin-bottom: 0.5em;
       }
 
       img {
@@ -296,6 +369,7 @@ aside {
   #book-review {
     display: flex;
     flex-direction: column;
+    padding-bottom: 2em;
   }
 
   #book-review .book-description {
@@ -304,16 +378,21 @@ aside {
     flex-direction: column;
     width: 30em;
     margin: 0 auto;
+    order: 1;
 
     .book-description-text {
-      padding: 2em;
-      padding-top: 0;
+      padding: 0 2em;
+
+      p {
+        margin: 0.5em 0;
+      }
     }
 
     img {
       max-width: 17em;
       margin: 0 auto;
-      margin-top: 1em;
+      margin-top: 2em;
+      margin-bottom: 1em;
       padding: 12px;
     }
   }
@@ -322,10 +401,25 @@ aside {
     width: 26em;
     margin: 0 auto;
     margin-top: 2em;
+    order: 3;
+  }
+
+  #book-review .book-list {
+    flex-direction: column;
+    height: fit-content;
+    padding: 0.8em;
+    order: 2;
+
+    .book-select {
+      margin: 0 auto;
+    }
   }
 
   .review-form .review-form-bg {
     padding: 0;
+    padding-top: 0.6em;
+    margin: 0;
+    text-align: center;
 
     h1 {
       font-size: 3em;
@@ -339,15 +433,134 @@ aside {
   .review-form {
     display: flex;
     flex-direction: column;
+    background-position: 30% 100%;
 
     .form {
       margin: 0 auto;
       width: 26em;
       order: 1;
+
+      input[type="submit"] {
+        margin-top: 1em;
+        margin-bottom: 0;
+      }
     }
 
     .review-form-bg {
       order: 2;
     }
+  }
+
+  .contact-links {
+    flex-direction: column;
+
+    li {
+      margin: 0;
+      padding-top: 0.6em;
+    }
+  }
+}
+
+@media (max-width: 595px) {
+  .contact-text {
+    h2 {
+      font-size: 1.7em;
+    }
+    p {
+      font-size: 1.2em;
+    }
+  }
+
+  .contact-links li {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 550px) {
+  #book-review .book-description {
+    width: 25em;
+  }
+
+  #book-review .review-list {
+    width: 21.2em;
+  }
+
+  .review-form .form {
+    width: 21.2em;
+  }
+
+  .review-form .review-form-bg {
+    margin: 0 auto;
+    width: 80%;
+    h1 {
+      font-size: 2.1em;
+    }
+
+    p {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  aside {
+    padding: 1.5em;
+  }
+  .contact-text {
+    h2 {
+      font-size: 1.4em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+}
+
+@media (max-width: 410px) {
+  #book-review .book-description {
+    width: 22em;
+  }
+
+  #book-review .review-list {
+    width: 18.2em;
+  }
+
+  .review-form .form {
+    width: 18.2em;
+  }
+
+  .contact-links li {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 365px) {
+  .welcome .inner-section h1 {
+    font-size: 2.8em;
+  }
+
+  #book-review .book-description {
+    width: 19em;
+  }
+
+  #book-review .review-list {
+    width: 15.2em;
+  }
+
+  .review-form .form {
+    width: 15.2em;
+  }
+
+  .review-form .review-form-bg h1 {
+    font-size: 1.8em;
+  }
+
+  .contact-links li {
+    font-size: 1em;
+  }
+
+  .contact-text h2 {
+    font-size: 1.2em;
   }
 }

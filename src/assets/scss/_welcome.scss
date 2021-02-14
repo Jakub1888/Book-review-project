@@ -1,58 +1,50 @@
 .welcome {
-  color: #fff;
+  color: white;
   text-align: left;
   width: 100%;
-  height: 800px;
-  text-shadow: 3px 3px 2px #b3b1b1;
-  background: url("./img/wave.svg") no-repeat center;
-  background-size: cover;
+  height: 35em;
+  padding-top: 9em;
+  padding-bottom: 10em;
+  @include text-shadow();
 
   .inner-section {
-    height: auto;
+    width: 60%;
     margin: 0 auto;
-    padding-top: 3em;
-    width: 50%;
-    text-align: center;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
+    text-align: center;
+    border: 1px white;
+    border-style: solid none;
 
     h1 {
       margin: 0 auto;
-      padding-top: .8em;
-      padding-bottom: 0.1em;
+      padding: 50px 0 30px 0;
       font-weight: 900;
-      font-size: 6em;
+      font-size: 6.5em;
       letter-spacing: 0.01em;
     }
 
     p {
-      font-size: 2em;
+      font-size: 2.5em;
       letter-spacing: 0.01em;
+      margin: 0;
+      padding-bottom: 20px;
     }
   }
-}
 
-@media (max-width: 1400px) {
-  .welcome .inner-section {
-    padding-left: 5em;
-
-    h1 {
-      font-size: 5em;
-    }
-
-    p {
-      font-size: 2em;
-    }
+  .inner-section:last-child {
+    padding-bottom: 50px;
   }
 }
 
 @media (max-width: 1050px) {
+  .welcome {
+    height: auto;
+  }
   .welcome .inner-section {
-    padding-left: 3em;
-
+    width: 80%;
     h1 {
-      font-size: 4em;
+      font-size: 5em;
     }
 
     p {
@@ -62,16 +54,18 @@
 }
 
 @media (max-width: 700px) {
+  .welcome {
+    padding-top: 5em;
+    padding-bottom: 6em;
+  }
+  
   .welcome .inner-section {
-    padding-left: 1.5em;
-
     h1 {
-      font-size: 3.3em;
+      font-size: 4em;
     }
 
     p {
       font-size: 1.4em;
-      width: 90%;
     }
   }
 }

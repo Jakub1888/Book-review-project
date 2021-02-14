@@ -13,7 +13,7 @@
           @mouseout="show = false"
         >
           <li><a href="#book-review">Books</a></li>
-          <li><a href="#">Quotes</a></li>
+          <li><a href="#quote-section">Quotes</a></li>
           <li><a @click="toggleModal">Sign Up</a></li>
           <li><a @click="toggleModalTwo">Log In</a></li>
         </ul>
@@ -22,7 +22,7 @@
     <!--Inline menu-->
     <ul class="links">
       <li><a href="#book-review">Books</a></li>
-      <li><a href="#">Quotes</a></li>
+      <li><a href="#quote-section">Quotes</a></li>
     </ul>
     <div class="logo"></div>
     <ul class="sign-up">
@@ -30,8 +30,6 @@
       <li><a @click="toggleModalTwo">Log In</a></li>
     </ul>
   </header>
-
-  <Book></Book>
 
   <!--Sign up-->
   <teleport to=".modals" v-if="showModal">
@@ -62,6 +60,9 @@
       </template>
     </Modal>
   </teleport>
+
+  <!--Main Section -->
+  <Book></Book>
 </template>
 
 <script>
