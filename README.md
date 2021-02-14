@@ -1,3 +1,5 @@
 # Book-review-project
 
-Website project for book reviews. Created in Vue.js 3, currently being worked on.
+Book review website project production version.
+
+Deployment version: https://github.com/Jakub1888/jakub1888.github.io
