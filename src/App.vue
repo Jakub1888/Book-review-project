@@ -12,8 +12,8 @@
           @mouseover="show = true"
           @mouseout="show = false"
         >
-          <li><a href="#book-review">Books</a></li>
-          <li><a href="#quote-section">Quotes</a></li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/review">Review</router-link></li>
           <li><a @click="toggleModal">Sign Up</a></li>
           <li><a @click="toggleModalTwo">Log In</a></li>
         </ul>
@@ -21,8 +21,8 @@
     </ul>
     <!--Inline menu-->
     <ul class="links">
-      <li><a href="#book-review">Books</a></li>
-      <li><a href="#quote-section">Quotes</a></li>
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/review">Review</router-link></li>
     </ul>
     <div class="logo"></div>
     <ul class="sign-up">
@@ -61,27 +61,26 @@
     </Modal>
   </teleport>
 
-  <!--Main Section -->
-  <Book></Book>
+  <router-view />
+  <contact></contact>
 </template>
 
 <script>
+import Contact from "./components/Contact.vue";
 import Modal from "./components/Modal.vue";
-import Book from "./components/Book.vue";
 import SignupForm from "./components/SignupForm.vue";
 
 export default {
-  name: "App",
   components: {
+    Contact,
     Modal,
-    Book,
     SignupForm,
   },
   data() {
     return {
+      show: false,
       showModal: false,
       showModalTwo: false,
-      show: false,
     };
   },
   methods: {
@@ -94,3 +93,18 @@ export default {
   },
 };
 </script>
+
+<style>
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>

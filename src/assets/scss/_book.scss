@@ -1,4 +1,5 @@
 #book-review {
+  margin-top: 5em;
   padding-bottom: 5em;
   width: 100%;
   display: grid;
@@ -8,6 +9,7 @@
   background-size: 500px;
 }
 
+//Description of books
 .book-description {
   background: url("./img/wave.svg") no-repeat center;
   background-color: white;
@@ -47,6 +49,7 @@
   }
 }
 
+//Place for review
 .review-list {
   border-radius: $border-radius-box;
   @include box-shadow();
@@ -123,6 +126,7 @@
   }
 }
 
+//Review Formular
 .review-form {
   background: url("./img/bg-2.png") no-repeat 0% 30%;
   background-size: 35em;
@@ -242,6 +246,16 @@
   }
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: lighten($color-text, 20%);
+}
+
+//Contact
 aside {
   background: #fff;
   color: $color-text;
