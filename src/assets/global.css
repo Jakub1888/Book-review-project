@@ -161,7 +161,7 @@
 }
 
 #book-review {
-  margin-top: 5em;
+  padding-top: 10em;
   padding-bottom: 5em;
   width: 100%;
   display: grid;
@@ -902,13 +902,15 @@ Quote Animations
   padding: 3em 3em 0 0;
   border-radius: 0 8px 8px 0;
   color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .slider .slider-text h3 {
   font-size: 2.3em;
   margin: 0;
   padding-bottom: 1em;
-  width: 90%;
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
@@ -916,6 +918,18 @@ Quote Animations
   font-size: 1.4em;
   margin: 0;
   line-height: 1.3em;
+  color: black;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.slider .slider-text p:last-of-type {
+  padding: 1em 0 .3em 0;
+  border-bottom: 1px solid white;
+  margin-top: auto;
+  margin-bottom: 3.2em;
+  color: white;
+  font-weight: normal;
 }
 
 .slider .slider-nav {
@@ -938,7 +952,7 @@ Quote Animations
 
 .slider-text a {
   text-decoration: none;
-  color: lghten(#4d3b96, 10%);
+  color: #614cb8;
   transition: 0.3s ease-in-out;
 }
 

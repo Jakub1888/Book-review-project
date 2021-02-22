@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     startRotation: function () {
-      this.timer = setInterval(this.next, 5000);
+      this.timer = setInterval(this.next, 4000);
     },
     stopRotation: function () {
       clearTimeout(this.timer);
