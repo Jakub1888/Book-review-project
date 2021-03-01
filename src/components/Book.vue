@@ -39,11 +39,11 @@
   <section class="review-form">
     <div class="review-form-bg">
       <h1>Inspire others with your review</h1>
-      <p>...or get inspired by some of the quotes below.</p>
+      <!--<p>...or get inspired by some of the quotes below.</p>-->
     </div>
     <review-form @review-submitted="addReview" class="form"></review-form>
   </section>
-  <quote-generator></quote-generator>
+  <!--<quote-generator></quote-generator> -->
   <a><router-link to="/">Go Back</router-link></a>
 </template>
 
