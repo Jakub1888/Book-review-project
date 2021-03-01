@@ -13,40 +13,47 @@
 
   <!--Image slider-->
   <div class="slider">
-    <div class="slider-images">
-      <transition-group name="fade" tag="div">
-        <div v-for="number in [currentNumber]" :key="number">
-          <img
-            :src="currentImage"
+    <div class="slider-header">
+      <span>-</span>
+      <i class="far fa-square"></i>
+      <i class="far fa-times-circle"></i>
+    </div>
+    <section class="slider-inner">
+      <div class="slider-images">
+        <transition-group name="fade" tag="div">
+          <div v-for="number in [currentNumber]" :key="number">
+            <img
+              :src="currentImage"
+              v-on:mouseover="stopRotation"
+              v-on:mouseout="startRotation"
+            />
+          </div>
+        </transition-group>
+        <p class="slider-nav">
+          <a
+            @click="prev"
             v-on:mouseover="stopRotation"
             v-on:mouseout="startRotation"
-          />
-        </div>
-      </transition-group>
-      <p class="slider-nav">
-        <a
-          @click="prev"
-          v-on:mouseover="stopRotation"
-          v-on:mouseout="startRotation"
-          >Previous</a
-        >
-        ||
-        <a
-          @click="next"
-          v-on:mouseover="stopRotation"
-          v-on:mouseout="startRotation"
-          >Next</a
-        >
-      </p>
-    </div>
-    <div class="slider-text">
-      <h3>Your favourite books in one spot</h3>
-      <p>Website serving as a dedicated place for your book reviews.</p>
-      <p>
-        Check out our
-        <a><router-link to="/review">review</router-link></a> section.
-      </p>
-    </div>
+            >Previous</a
+          >
+          ||
+          <a
+            @click="next"
+            v-on:mouseover="stopRotation"
+            v-on:mouseout="startRotation"
+            >Next</a
+          >
+        </p>
+      </div>
+      <div class="slider-text">
+        <h3>Your favourite books in one spot</h3>
+        <p>Website serving as a dedicated place for your book reviews.</p>
+        <p>
+          Check out our
+          <a><router-link to="/review">review</router-link></a> section.
+        </p>
+      </div>
+    </section>
   </div>
 </template>
 
