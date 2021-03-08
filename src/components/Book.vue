@@ -1,4 +1,5 @@
 <template>
+  <h1 class="review-header">Review Section</h1>
   <!--Book review section-->
   <section id="book-review">
     <div class="book-description">
@@ -34,29 +35,38 @@
     <!--Review List-->
     <review-list :reviews="reviews" class="review-list"> </review-list>
   </section>
-
+  
   <!--Review Form-->
   <section class="review-form">
     <div class="review-form-bg">
       <h1>Inspire others with your review</h1>
-      <!--<p>...or get inspired by some of the quotes below.</p>-->
+      <p>...or get inspired by some of the quotes below.</p>
     </div>
     <review-form @review-submitted="addReview" class="form"></review-form>
   </section>
-  <!--<quote-generator></quote-generator> -->
-  <a><router-link to="/">Go Back</router-link></a>
+
+  <!--Quote generator-->
+  <quote-generator></quote-generator>
+
+  <!--Route link to next/previous section-->
+  <div class="routes">
+    <a><router-link to="/">Go Back</router-link></a>
+    <a><router-link to="/authors">Go Next</router-link></a>
+  </div>
 </template>
 
 <script>
 import ReviewForm from "./ReviewForm.vue";
 import ReviewList from "./ReviewList.vue";
 import QuoteGenerator from "./QuoteGenerator.vue";
+import Card from "./Card.vue";
 
 export default {
   components: {
     ReviewForm,
     ReviewList,
     QuoteGenerator,
+    Card,
   },
   data() {
     return {

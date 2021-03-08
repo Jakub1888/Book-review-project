@@ -1,6 +1,18 @@
+.review-header {
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  margin: 0 auto;
+  margin-top: 2em;
+  width: 60%;
+  padding: 1em 0;
+  @include text-shadow();
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+}
+
 #book-review {
-  padding-top: 10em;
-  padding-bottom: 5em;
+  padding: 5em 0;
   width: 100%;
   display: grid;
   grid-template-columns: 2fr 1.2fr;
@@ -246,8 +258,13 @@
   }
 }
 
-a {
+.routes a {
   text-decoration: none;
+}
+
+.routes a:nth-of-type(2) {
+  position: absolute;
+  right: 0;
 }
 
 a:hover,
@@ -262,6 +279,7 @@ aside {
   height: auto;
   margin: 0 auto;
   padding: 3em;
+  border-top: 1px solid #000;
 
   h2 {
     margin: 0;
@@ -339,7 +357,7 @@ footer {
 }
 
 //ADAPTIVE
-@media (max-width: 1480px) {
+@media (max-width: 1485px) {
   #book-review {
     .book-description {
       margin-left: 3em;
@@ -472,6 +490,13 @@ footer {
       margin: 0;
       padding-top: 0.6em;
     }
+  }
+}
+
+@media (max-width: 830px) {
+  .review-header {
+    font-size: 3.5em;
+    width: 90%;
   }
 }
 

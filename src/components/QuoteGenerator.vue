@@ -21,7 +21,7 @@ export default {
       currentQuote: "",
       currentQuoteAuthor: "",
       animating: false,
-      quotes_api_url: "http://quotes.stormconsultancy.co.uk/quotes.json",
+      quotes_api_url: "https://type.fit/api/quotes",
     };
   },
    methods: {
@@ -34,7 +34,7 @@ export default {
     },
     randomizeQuote: function() {
       const num = Math.floor(Math.random() * this.quotes.length)
-      this.currentQuote = this.quotes[num].quote
+      this.currentQuote = this.quotes[num].text
       this.currentQuoteAuthor = this.quotes[num].author
     },
   },

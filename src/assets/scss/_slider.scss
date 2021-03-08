@@ -10,7 +10,7 @@
     border-bottom: none;
     height: 2em;
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
     position: relative;
     bottom: 6em;
     text-align: right;
@@ -35,7 +35,7 @@
     background: url("./img/slider.svg") no-repeat center;
     background-color: rgb(241, 236, 236);
     background-size: cover;
-    width: 70%;
+    width: 60%;
     position: relative;
     bottom: 6em;
     border-bottom: 3px solid rgb(211, 204, 204);
@@ -105,20 +105,20 @@
 }
 
 .slider img {
-  width: 20em;
-  height: 30em;
+  width: 17em;
+  height: 25em;
   object-fit: cover;
   border: 0.5em solid rgb(136, 84, 84);
 }
 
 .fade-leave-active {
-  transition: all 0.8s ease;
+  transition: all .8s ease;
   overflow: hidden;
   visibility: visible;
   opacity: 1;
   position: absolute;
 }
-.fade-enter,
+
 .fade-leave-to {
   opacity: 0;
   visibility: hidden;

@@ -50,7 +50,8 @@
         <p>Website serving as a dedicated place for your book reviews.</p>
         <p>
           Check out our
-          <a><router-link to="/review">review</router-link></a> section.
+          <a><router-link to="/review">review</router-link></a>, 
+          or <a><router-link to="/authors">author</router-link></a> section.
         </p>
       </div>
     </section>

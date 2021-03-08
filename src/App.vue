@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="main-header">
     <!--Dropdown Menu-->
     <ul class="dropdown">
       <a class="dropbtn" @mouseover="show = true" @mouseout="show = false">
@@ -14,6 +14,7 @@
         >
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/review">Review</router-link></li>
+          <li><router-link to="/authors">Authors</router-link></li>
           <li><a @click="toggleModal">Sign Up</a></li>
           <li><a @click="toggleModalTwo">Log In</a></li>
         </ul>
@@ -23,6 +24,7 @@
     <ul class="links">
       <li><router-link to="/">Home</router-link></li>
       <li><router-link to="/review">Review</router-link></li>
+      <li><router-link to="/authors">Authors</router-link></li>
     </ul>
     <div class="logo"></div>
     <ul class="sign-up">
@@ -61,7 +63,10 @@
     </Modal>
   </teleport>
 
-  <router-view />
+  <router-view>
+  </router-view>
+
+  <!--Contact-->
   <contact></contact>
 </template>
 
@@ -93,18 +98,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>

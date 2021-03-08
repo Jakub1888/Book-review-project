@@ -91,3 +91,17 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 500px) {
+  .modal {
+    max-width: 220px;
+    padding: 20px 45px;
+
+    .modal-close-x {
+      left: 11.8em;
+      bottom: 1em;
+    }
+  }
+
+  
+}

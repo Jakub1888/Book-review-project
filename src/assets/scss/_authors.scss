@@ -1,0 +1,266 @@
+//Flip Card
+.card {
+  background: rgb(245, 242, 242);
+  color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  header {
+    text-align: center;
+    @include text-shadow();
+    width: 60%;
+    margin-top: 6em;
+
+    h1 {
+      padding: 1em 0 0.4em 0;
+      font-weight: 900;
+      font-size: 4em;
+      letter-spacing: 0.01em;
+      border-top: 1px solid black;
+    }
+
+    p {
+      font-size: 2.5em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0;
+      border-bottom: 1px solid black;
+      padding-bottom: 70px;
+    }
+  }
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5%;
+  margin: 8em 5% 2em 5%;
+}
+
+.flip-card-container {
+  width: 35em;
+  height: 21em;
+  perspective: 1000px;
+  padding-bottom: 5em;
+}
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s;
+  transform-style: preserve-3d;
+}
+.flip-card-container:hover .flip-card {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid rgb(124, 101, 101);
+  @include box-shadow();
+}
+.flip-card-front {
+  background: linear-gradient(90deg, rgb(77, 65, 65) 32%, #fff 32%);
+  color: #000;
+  justify-content: flex-start;
+
+  img {
+    width: 12em;
+    height: 16em;
+    object-fit: cover;
+    border: 3px solid black;
+    margin-left: 2.3em;
+  }
+
+  .birth {
+    font-size: 0.5em;
+  }
+
+  p {
+    font-size: 1.6em;
+    text-align: center;
+    padding-left: 2em;
+  }
+}
+.flip-card-back {
+  color: #fff;
+  background: #74b1a9;
+  transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: -1.25em;
+
+  p {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.3em;
+    width: 90%;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    padding: 2em 0 1.5em 0;
+    margin: 0;
+  }
+
+  a {
+    @include transition(0.3s ease-in-out);
+    margin-top: auto;
+    margin-bottom: 2em;
+    text-decoration: none;
+  }
+}
+
+.author-route {
+  background: rgb(245, 242, 242);
+  a {
+    text-decoration: none;
+  }
+}
+
+//Adaptive
+@media (max-width: 1330px) {
+  .card-row {
+    gap: 1%;
+  }
+  .flip-card-container {
+    display: flex;
+    justify-content: center;
+    width: 28em;
+    height: 20em;
+    padding-bottom: 3em;
+  }
+
+  .flip-card {
+    width: 90%;
+    height: 90%;
+  }
+
+  .flip-card-front {
+    img {
+      max-width: 10em;
+      height: 12em;
+      margin-left: 1.6em;
+    }
+
+    p {
+      font-size: 1.2em;
+      padding-left: 1em;
+    }
+  }
+
+  .flip-card-back {
+    h3 {
+      padding: 1em 0;
+    }
+  }
+}
+@media (max-width: 1050px) {
+  .card header {
+    width: 80%;
+    h1 {
+      font-size: 3em;
+    }
+
+    p {
+      font-size: 2em;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .card header {
+    p {
+      font-size: 1.6em;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .flip-card-container {
+    width: 25em;
+    height: 18em;
+    margin-right: 1em;
+  }
+
+  .flip-card-front {
+    img {
+      max-width: 9em;
+      height: 10em;
+    }
+
+    p {
+      font-size: 1.2em;
+      padding-left: 1em;
+    }
+  }
+
+  .flip-card-back {
+    p {
+      font-size: 0.9em;
+    }
+    h3 {
+      padding: 1em 0 0.7em 0;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .flip-card-container {
+    width: 22em;
+    height: 15em;
+  }
+
+  .flip-card-front {
+    img {
+      margin-left: 1em;
+    }
+
+    p {
+      font-size: 1em;
+      padding-left: 0.8em;
+    }
+  }
+
+  .flip-card-back {
+    h3 {
+      font-size: 1.2em;
+    }
+    a {
+      font-size: 0.8em;
+    }
+  }
+}
+
+@media (max-width: 370px) {
+  .flip-card-container {
+    width: 19em;
+    height: 13em;
+  }
+
+  .flip-card-front {
+    p {
+      font-size: 1em;
+      padding-left: 0.2em;
+    }
+  }
+
+  .flip-card-back {
+    h3 {
+      padding: 0.5em 0;
+    }
+  }
+}
