@@ -1,40 +1,94 @@
 <template>
-  <section class="card">
-    <header>
-      <h1>Authors</h1>
-      <p>Short section dedicated for our favourite authors.</p>
-    </header>
+  <transition appear name="fade">
+    <section class="card">
+      <transition
+        appear
+        tag="header"
+        @before-enter="beforeEnterHeader"
+        @enter="enterHeader"
+      >
+        <header>
+          <h1>Authors</h1>
+          <p>Short section dedicated for our favourite authors.</p>
+        </header>
+      </transition>
 
-    <div class="card-row">
-      <div class="flip-card-container" v-for="card in cards" :key="card.text">
-        <div class="flip-card">
-          <!--front section of card-->
-          <div class="flip-card-front">
-            <img :src="card.url" :alt="card.altText" />
-            <p>
-              {{ card.textFront }} <br />
-              <span class="birth">{{ card.birth }}</span>
-            </p>
-          </div>
-          <!--back section of card-->
-          <div class="flip-card-back">
-            <h3>About</h3>
-            <p>
-              {{ card.textBack }}
-            </p>
-            <a :href="card.textSource" target="_blank" rel="noopener">More about the author</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <transition
+        appear
+        tag="div"
+        @before-enter="beforeEnterSlider"
+        @enter="enterSlider"
+      >
+        <div class="card-row">
+          <div
+            class="flip-card-container"
+            v-for="card in cards"
+            :key="card.text"
+          >
+            <div class="flip-card">
+              <!--front section of card-->
+              <div class="flip-card-front">
+                <img :src="card.url" :alt="card.altText" />
+                <p>
+                  {{ card.textFront }} <br />
+                  <span class="birth">{{ card.birth }}</span>
+                </p>
+              </div>
+              <!--back section of card-->
+              <div class="flip-card-back">
+                <h3>About</h3>
+                <p>
+                  {{ card.textBack }}
+                </p>
+                <a :href="card.textSource" target="_blank" rel="noopener"
+                  >More about the author</a
+                >
+              </div>
+            </div><!--flip-card-->
+          </div><!--flip-card-container-->
+        </div><!--card-row-->
+      </transition>
+    </section>
+  </transition>
   <div class="author-route">
     <a><router-link to="/review">Go Back</router-link></a>
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 export default {
+  //Composition API
+  setup() {
+    const beforeEnterHeader = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateX(-100px)";
+    };
+
+    const enterHeader = (el) => {
+      gsap.to(el, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+      });
+    };
+
+    const beforeEnterSlider = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(100px)";
+    };
+
+    const enterSlider = (el) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+      });
+    };
+
+    return { beforeEnterHeader, enterHeader, beforeEnterSlider, enterSlider };
+  },
+  //Options API
   data() {
     return {
       cards: [

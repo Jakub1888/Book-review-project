@@ -1,4 +1,5 @@
 <template>
+
   <header class="main-header">
     <!--Dropdown Menu-->
     <ul class="dropdown">
@@ -68,6 +69,7 @@
 
   <!--Contact-->
   <contact></contact>
+ 
 </template>
 
 <script>
